@@ -5,5 +5,10 @@ export default defineNuxtConfig({
   modules: ['@nuxt/content'],
   content: {
     documentDriven: true,
+    experimental: {
+      clientDB: true,
+      stripQueryParameters: false,
+      advanceQuery: false,
+    },
   },
 });

@@ -1,6 +1,5 @@
 <template>
   <div v-for="entry in entries" :key="entry._id">
-    <pre>{{ entry }}</pre>
     <EventCard :entry="entry" />
   </div>
 </template>
