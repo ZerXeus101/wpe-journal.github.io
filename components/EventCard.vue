@@ -1,6 +1,6 @@
 <script setup>
 defineProps({
-  event: {
+  entry: {
     type: Object,
     required: true,
   },
@@ -8,19 +8,14 @@ defineProps({
 </script>
 
 <template>
-  <div
-    class="event-card"
-    @mouseover="handleMouseOver"
-    @mouseout="handleMouseOut"
-  >
+  <div class="event-card">
     <div class="preview">
-      <img :src="event.image" alt="Event Preview" />
-      <h3>{{ event.name }}</h3>
-      <p>{{ event.date }}</p>
-    </div>
-    <div class="reflection" v-show="hovered">
-        {{ event.reflection }}
+      <img :src="entry?.previewImage" alt="Event Image" />
+      <div>{{ entry.createdAt }}</div>
+      <div>
+        <ContentRenderer :value="entry" />
       </div>
+    </div>
   </div>
 </template>
 
@@ -62,9 +57,12 @@ h1 {
   border-radius: 1rem;
 }
 .event-card:hover {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
   z-index: 2;
 }
 
@@ -99,9 +97,12 @@ img {
   transition: opacity 0.3s ease;
   max-width: 500px;
   border-radius: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .event-card:hover .reflection {

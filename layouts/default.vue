@@ -1,9 +1,9 @@
 <template>
   <div class="nav-container">
     <nav class="navMenu">
-          <NuxtLink to ="/">Home</NuxtLink>
-          <NuxtLink to ="/entries">Journal Entries</NuxtLink>
-          <NuxtLink to ="/about">About</NuxtLink>
+      <NuxtLink to="/">Home</NuxtLink>
+      <NuxtLink to="/entries">Journal Entries</NuxtLink>
+      <NuxtLink to="/about">About</NuxtLink>
       <div class="dot"></div>
     </nav>
     <slot />
@@ -11,18 +11,17 @@
 </template>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 body {
-    background: #27374D;
-  font-family: "Montserrat", sans-serif;
+  background: #27374d;
+  font-family: 'Montserrat', sans-serif;
 }
 
-
 .navMenu {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .navMenu a {
@@ -41,5 +40,4 @@ body {
 .navMenu a:hover {
   color: #fddb3a;
 }
-
 </style>
