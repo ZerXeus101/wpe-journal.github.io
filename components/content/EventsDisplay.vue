@@ -1,5 +1,4 @@
 <script setup>
-import EventCard from './EventCard.vue';
 import { ref } from 'vue';
 
 const events = ref([

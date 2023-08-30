@@ -1,10 +1,8 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  ssr: false,
+  pages: true,
   modules: ['@nuxt/content'],
-  alias: {
-    'micromark/lib/preprocess.js': 'micromark',
-    'micromark/lib/postprocess.js': 'micromark',
-  },
   content: {
     documentDriven: true,
   },
