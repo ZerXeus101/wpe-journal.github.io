@@ -1,49 +1,54 @@
 <template>
-  <div class="background-animation">
-    <div class="ripple-background">
-      <div class="circle xxlarge shade1"></div>
-      <div class="circle xlarge shade2"></div>
-      <div class="circle large shade3"></div>
-      <div class="circle medium shade4"></div>
-      <div class="circle small shade5"></div>
+  <section class="page">
+    <div class="background-animation">
+      <div class="ripple-background">
+        <div class="circle xxlarge shade1"></div>
+        <div class="circle xlarge shade2"></div>
+        <div class="circle large shade3"></div>
+        <div class="circle medium shade4"></div>
+        <div class="circle small shade5"></div>
+      </div>
     </div>
-  </div>
-  <div id="homepage">
-    <div class="content-wrapper">
-      <div class="text-intro-wrapper">
-        <div class="border-box">
-          <div class="intro">
-            <div class="text-scroll">
-              <div class="text-top">
-                <span class="block-top">BY</span>
-                <span class="block-top">FOR</span>
-              </div>
-              <div class="text-bottom">
-                <span class="block-bot">BY</span>
-                <span class="block-bot">FOR</span>
+    <div id="homepage">
+      <div class="content-wrapper">
+        <div class="text-intro-wrapper">
+          <div class="border-box">
+            <div class="intro">
+              <div class="text-scroll">
+                <div class="text-top">
+                  <span class="block-top">BY</span>
+                  <span class="block-top">FOR</span>
+                </div>
+                <div class="text-bottom">
+                  <span class="block-bot">BY</span>
+                  <span class="block-bot">FOR</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="ZerXeus words">
-          <span>Z</span>
-          <span>E</span>
-          <span>R</span>
-          <span>X</span>
-          <span>E</span>
-          <span>U</span>
-          <span>S</span>
+          <div class="ZerXeus words">
+            <span>Z</span>
+            <span>E</span>
+            <span>R</span>
+            <span>X</span>
+            <span>E</span>
+            <span>U</span>
+            <span>S</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
-body {
-  overflow: hidden;
+html,body {
+  background-repeat: no-repeat;
 }
 
+.page {
+  overflow: hidden;
+}
 .content-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -153,7 +158,7 @@ body {
 }
 
 .words {
-  color: #2a2f4f;
+  color: #27374d;
   font-size: 0;
   line-height: 1.5;
 }
@@ -167,7 +172,7 @@ body {
 @keyframes move {
   0% {
     transform: translate(30%, 0);
-    color: #2a2f4f;
+    color: #27374d;
     text-shadow: transparent;
   }
   50% {
@@ -209,6 +214,19 @@ body {
   animation-delay: 1.5s;
 }
 
+.background-animation {
+  animation: 3s wipe-in-first forwards;
+  overflow: hidden;
+}
+
+@keyframes wipe-in-first {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .border-box {
   z-index: 2;
   width: 90px;

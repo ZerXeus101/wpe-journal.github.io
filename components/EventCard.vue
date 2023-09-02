@@ -8,13 +8,16 @@ defineProps({
 </script>
 
 <template>
-  <div class="event-card">
+  <div class="event-card" @click="handleCardClick" :class="['event-card', { 'expanded': showContent }]">
     <div class="preview">
       <img :src="entry?.previewImage" alt="Event Image" />
       <div>{{ entry.createdAt }}</div>
-      <div>
-        <ContentRenderer :value="entry" />
+      <h1>{{ entry.title }}</h1>
+      <transition name="fade">
+      <div v-if="showContent">
+        <ContentRenderer :class="{'content-format': showContent}" :value="entry" />
       </div>
+    </transition>
     </div>
   </div>
 </template>
@@ -24,20 +27,35 @@ export default {
   data() {
     return {
       hovered: false,
+      showContent: false,
     };
   },
   methods: {
-    handleMouseOver() {
-      this.hovered = true;
-    },
-    handleMouseOut() {
-      this.hovered = false;
+    handleCardClick() {
+      this.showContent = true;
+      this.$router.push(`${this.entry._path}`);
     },
   },
 };
 </script>
 
 <style scoped>
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-in-out; 
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transition-delay: 0.2s ease-in-out;
+}
+.event-card.expanded {
+  width: 80vw;
+  transition: width 0.3s ease-in-out, scale 0.4s ease-in-out; 
+}
+
 h1 {
   font-weight: bolder;
 }
@@ -46,6 +64,7 @@ h1 {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  height:fit-content;
 }
 
 .event-card {
@@ -57,55 +76,32 @@ h1 {
   border-radius: 1rem;
 }
 .event-card:hover {
-  box-shadow:
-    rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px,
-    rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px,
-    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   z-index: 2;
 }
 
 img {
-  max-width: 400px;
+  max-width: 250px;
   border-radius: 1rem;
 }
 
 .event-card {
-  width: 400px; /* Initial width of the card */
+  width: 250px; /* Initial width of the card */
   height: auto;
-  transition: width 0.3s ease;
+  transition: scale 0.3s ease, height 0.3s ease-in-out;
 }
 
 .event-card:hover {
-  width: 90vw; /* Width of the card on hover */
+  scale: 1.05; /* Width of the card on hover */
 }
 
 .preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   position: relative;
 }
 
-/* .preview img {
-  width: 100%;
-} */
-
-.reflection {
-  background-color: #526d82;
-  color: #fff;
-  padding: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  max-width: 500px;
-  border-radius: 1rem;
-  box-shadow:
-    rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px,
-    rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px,
-    rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-
-.event-card:hover .reflection {
-  opacity: 1;
-}
 </style>

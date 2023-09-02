@@ -1,12 +1,15 @@
 <template>
   <div class="nav-container">
-    <nav class="navMenu">
-      <NuxtLink to="/">Home</NuxtLink>
-      <NuxtLink to="/entries">Journal Entries</NuxtLink>
-      <NuxtLink to="/about">About</NuxtLink>
-    </nav>
-    
-    <slot />
+    <section>
+      <nav class="navMenu">
+        <NuxtLink to="/">Home</NuxtLink>
+        <NuxtLink to="/entries">Journal Entries</NuxtLink>
+        <NuxtLink to="/about">About</NuxtLink>
+      </nav>
+    </section>
+    <section class="content">
+        <slot />
+    </section>
   </div>
 </template>
 
@@ -17,10 +20,15 @@ body {
   background: #27374d;
   font-family: 'Montserrat', sans-serif;
 }
+
+.content {
+    margin: 20px;
+}
 .nav-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .navMenu {
   display: flex;
