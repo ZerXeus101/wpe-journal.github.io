@@ -1,5 +1,11 @@
+<script lang="ts" setup>
+const layout = 'custom';
+</script>
+
+
 <template>
-  <section class="page">
+  <NuxtLayout :name="layout">
+    <section class="page">
     <div class="background-animation">
       <div class="ripple-background">
         <div class="circle xxlarge shade1"></div>
@@ -39,22 +45,22 @@
       </div>
     </div>
   </section>
+  </NuxtLayout>
 </template>
-
+ 
 <style scoped>
-html,body {
+body {
   background-repeat: no-repeat;
-}
-
-.page {
   overflow: hidden;
 }
+
 .content-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  min-height: 100vh;
-  max-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .text-intro-wrapper {
@@ -342,4 +348,6 @@ html,body {
     transform: scale(0.8);
   }
 }
+
+
 </style>

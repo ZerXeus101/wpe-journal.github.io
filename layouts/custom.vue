@@ -1,21 +1,16 @@
-<template>
-  <div class="nav-container">
-    <nav class="navMenu">
-      <NuxtLink to="/">Home</NuxtLink>
-      <NuxtLink to="/entries">Journal Entries</NuxtLink>
-      <NuxtLink to="/about">About</NuxtLink>
-    </nav>
-    
+<template> 
+  <div>
     <slot />
   </div>
 </template>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 body {
   background: #27374d;
   font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
 }
 .nav-container {
   display: flex;
