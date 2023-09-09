@@ -1,9 +1,11 @@
 <template>
-    <div class="container">
+  <div class="container">
+    <template v-for="idx in [...Array(10)].fill(0)" :key="idx">
       <div class="cards-holder" v-for="entry in entries" :key="entry._id">
         <EventCard :entry="entry" />
       </div>
-    </div>
+    </template>
+  </div>
 </template>
 
 <script lang="ts" setup>

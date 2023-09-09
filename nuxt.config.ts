@@ -11,4 +11,5 @@ export default defineNuxtConfig({
       advanceQuery: false,
     },
   },
+  css: ['~/assets/styles/reset.css', '~/assets/styles/global.css'],
 });

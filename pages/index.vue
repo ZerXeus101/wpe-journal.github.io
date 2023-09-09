@@ -1,11 +1,7 @@
-<script lang="ts" setup>
-const layout = 'custom';
-</script>
-
+<script lang="ts" setup></script>
 
 <template>
-  <NuxtLayout :name="layout">
-    <section class="page">
+  <div class="page">
     <div class="background-animation">
       <div class="ripple-background">
         <div class="circle xxlarge shade1"></div>
@@ -44,10 +40,9 @@ const layout = 'custom';
         </div>
       </div>
     </div>
-  </section>
-  </NuxtLayout>
+  </div>
 </template>
- 
+
 <style scoped>
 body {
   background-repeat: no-repeat;
@@ -58,8 +53,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  height: 100vh;
-  width: 100vw;
   overflow: hidden;
 }
 
@@ -187,12 +180,8 @@ body {
   100% {
     transform: translate(0%, 0);
     color: #ffd2d7;
-    text-shadow:
-      rgba(0, 0, 0, 0.25) 0px 27px 27.5px,
-      rgba(0, 0, 0, 0.12) 0px -6px 15px,
-      rgba(0, 0, 0, 0.12) 0px 2px 3px,
-      rgba(0, 0, 0, 0.17) 0px 6px 7.5px,
-      rgba(0, 0, 0, 0.09) 0px -1.5px 2.5px;
+    text-shadow: rgba(0, 0, 0, 0.25) 0px 27px 27.5px, rgba(0, 0, 0, 0.12) 0px -6px 15px, rgba(0, 0, 0, 0.12) 0px 2px 3px,
+      rgba(0, 0, 0, 0.17) 0px 6px 7.5px, rgba(0, 0, 0, 0.09) 0px -1.5px 2.5px;
   }
 }
 
@@ -222,7 +211,10 @@ body {
 
 .background-animation {
   animation: 3s wipe-in-first forwards;
-  overflow: hidden;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
 
 @keyframes wipe-in-first {
@@ -348,6 +340,4 @@ body {
     transform: scale(0.8);
   }
 }
-
-
 </style>

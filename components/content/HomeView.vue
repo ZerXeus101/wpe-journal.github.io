@@ -48,8 +48,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  min-height: 100vh;
-  max-height: 100vh;
 }
 
 .text-intro-wrapper {
