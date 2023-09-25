@@ -1,5 +1,3 @@
-<script lang="ts" setup></script>
-
 <template>
   <div class="page">
     <div class="background-animation">
@@ -13,7 +11,8 @@
     </div>
     <div id="homepage">
       <div class="content-wrapper">
-        <div class="text-intro-wrapper">
+        <!-- 1st row 1st column -->
+        <section class="text-intro-wrapper">
           <div class="border-box">
             <div class="intro">
               <div class="text-scroll">
@@ -37,7 +36,15 @@
             <span>U</span>
             <span>S</span>
           </div>
-        </div>
+        </section>
+        <!-- 2nd row 2nd column -->
+        <section class="self-intro-wrapper">
+          <div class="box-container">
+            <div class="picture-of-self"> this is an image</div>
+            <div class="intro-heading">Joshua Briones</div>
+            <div class="intro-subheading">BSCS 1 - GE10 A</div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -48,12 +55,14 @@ body {
   background-repeat: no-repeat;
   overflow: hidden;
 }
-
 .content-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 100px 1fr;
+  margin-top: 50px;
+  width: 90vw;
   overflow: hidden;
+  padding-bottom: 20px;
 }
 
 .text-intro-wrapper {
@@ -65,6 +74,57 @@ body {
   font-size: 30px;
   font-family: monospace;
   font-weight: bold;
+  width: 100%;
+}
+.self-intro-wrapper {
+  grid-row: 2;
+  grid-column: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.picture-of-self {
+  width: 250px;
+  height: 250px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.box-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: 3s wipe-in2 forwards;
+  opacity: 0;
+  background: #6499E9;
+  color: #27374d;
+  border-radius: 1rem;
+  width: 90%;
+  transition: scale 0.3s ease;
+  gap: 10px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.box-container:hover {
+  scale: 1.05; /* Width of the card on hover */
+}
+
+.intro-heading {
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.intro-subheading {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 30px;
 }
 
 .intro {
@@ -73,9 +133,8 @@ body {
   flex-direction: row;
   align-items: center;
   width: fit-content;
-  max-height: 80px;
+  max-height: 50px;
   overflow: hidden;
-  gap: 10px;
 }
 .text-scroll {
   display: flex;
@@ -163,9 +222,14 @@ body {
 }
 
 .words span {
-  font-size: 6rem;
+  font-size: 5rem;
   display: inline-block;
   animation: move 3s ease-in-out forwards;
+  transition: scale 0.3s ease;
+}
+
+.words span:hover {
+  scale: 1.5;
 }
 
 @keyframes move {
@@ -227,8 +291,8 @@ body {
 }
 .border-box {
   z-index: 2;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   border: 5px solid #ffb4b4;
   display: flex;
   align-items: center;
@@ -249,12 +313,22 @@ body {
   }
 }
 
+
+@keyframes wipe-in2 {
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .border-box {
   position: relative;
 }
 
 .border-box:before {
-  content: '';
   position: absolute;
   top: -4px;
   left: -4px;

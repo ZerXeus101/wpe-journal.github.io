@@ -14,7 +14,7 @@ defineProps({
       <div>{{ entry.createdAt }}</div>
       <h1>{{ entry.title }}</h1>
       <transition name="fade">
-      <div v-if="showContent">
+      <div v-if="showContentt">
         <ContentRenderer :class="{'content-format': showContent}" :value="entry" />
       </div>
     </transition>
@@ -32,8 +32,12 @@ export default {
   },
   methods: {
     handleCardClick() {
-      this.showContent = true;
-      this.$router.push(`${this.entry._path}`);
+      if (this.$route.path == this.entry._path) {
+        return this.showContent = true;
+      }
+      else {
+        return this.$router.push(`${this.entry._path}`);
+      }
     },
   },
 };
@@ -64,7 +68,6 @@ h1 {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  height:fit-content;
 }
 
 .event-card {
@@ -88,7 +91,7 @@ img {
 
 .event-card {
   width: 250px; /* Initial width of the card */
-  height: auto;
+  height: 220px;
   transition: scale 0.3s ease, height 0.3s ease-in-out;
 }
 
