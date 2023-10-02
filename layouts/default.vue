@@ -5,9 +5,8 @@
       <NuxtLink to="/entries">Journal Entries</NuxtLink>
       <NuxtLink to="/about">About</NuxtLink>
     </nav>
-
-    <slot />
   </div>
+  <slot />
 </template>
 
 <style>

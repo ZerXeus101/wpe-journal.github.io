@@ -55,12 +55,19 @@ body {
   background-repeat: no-repeat;
   overflow: hidden;
 }
+
+#homepage {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 .content-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 100px 1fr;
   margin-top: 50px;
-  width: 90vw;
+  width: 100%;
   overflow: hidden;
   padding-bottom: 20px;
 }
@@ -105,7 +112,7 @@ body {
   background: #6499E9;
   color: #27374d;
   border-radius: 1rem;
-  width: 90%;
+  width: 500px;
   transition: scale 0.3s ease;
   gap: 10px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
